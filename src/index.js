@@ -1,17 +1,20 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Director from './views/Director';
+import HomePage from './views/HomePage'
+import Weather from "./views/Weather"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Director>
+      <Route exact path = "/" component={HomePage}/>
+      <Route exact path = "/weather" component={Weather}/>
+    </Director>
+  </Router>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
